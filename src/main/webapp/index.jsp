@@ -262,17 +262,18 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     	return false;
     }
 
-    var formData = new FormData();
-    formData.append('nameField', nameField.value);
-    formData.append('emailField', emailField.value);
-    formData.append('phoneField', phoneField.value);
-    formData.append('messageField', messageField.value);
-
-	var url = "./send-mail.php";
-
+	var url = "./email/send";
+	var data = {
+			name: nameField.value,
+			email: emailField.value,
+			phoneNumber: phoneField.value,
+			message: messageField.value
+			
+	}
 	fetch(url, {
 		method:"POST",
-		body: formData
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify(data)
 	})
 	.then(function (response) {
          if (!response.ok) {
@@ -281,25 +282,15 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 		return response.json();		
 	})
 	.then((jsonData) => {
+		
 		if(jsonData.status === "Success") {
 			showElementById("alertSuccess");
 		} else {
 		 	var errorMsg = "<ul>";
-		 	if(jsonData.emailError != "") {
-		 		errorMsg += "<li>" + jsonData.emailError + "</li>";
-		 	}
-		 	if(jsonData.nameError != "") {
-		 		errorMsg += "<li>" + jsonData.nameError + "</li>";
-		 	}
-		 	if(jsonData.phoneError != "") {
-		 		errorMsg += "<li>" + jsonData.phoneError + "</li>";
-		 	}
-		 	if(jsonData.messageError != "") {
-		 		errorMsg += "<li>" + jsonData.messageError + "</li>";
-		 	}
-		 	if(jsonData.sendEmailError!= null && jsonData.sendEmailError != "") {
-		 		errorMsg += "<li>" + jsonData.sendEmailError + "</li>";
-		 	}
+		 	
+		 	jsonData.errors.forEach(error => {
+		 		errorMsg += "<li>" + error + "</li>";
+		 	});
 		 	errorMsg += "</ul>"
 
 			document.getElementById("errorMessage").innerHTML = errorMsg;
