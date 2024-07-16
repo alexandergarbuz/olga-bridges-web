@@ -13,7 +13,7 @@ public class HomeController {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public ModelAndView home() {
     	
     	LOG.debug("Saying hello");
