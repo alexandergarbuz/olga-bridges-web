@@ -1,22 +1,93 @@
-body, h1, h2, h3, td, p, div, span, li, a {
-	font-family: Verdana, Arial, serif;
+body {
+	/*padding-top: 70px; /* Adjust based on the height of your navbar */
+	
 }
 
-body, h1, h2, h3, td, p, div, span, li {
-	color: #000;
+blockquote {
+	font-weight: normal;
 }
+
 h1, h2, h3, h4 {
 	text-align: center;
-}
-body {
-	padding-top: 150px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
-div#page-header {
+img.main-photo {
+	width:100%;
+	max-width: 300px;
+	height: auto;
+	display:block;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+p.image-caption {
+	text-align: center;
+	font-weight: bold;
+}
+
+div.page-header {
+	color: #fff !important;
+	background-color: #212529 !important;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-bottom: 0px;
+}
+
+#our-city, #greenville, #spartanburg {
+	color: #fff !important;
+	background-color: #616161 !important;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-bottom: 0px;
+}
+
+#our-city, #greenville, #spartanburg p {
+	text-align: justify;
+}
+
+#about p {
+	text-align: justify;
+}
+
+#contact {
+	color: #000 !important;
+	background-color: #f1f1f1 !important;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-bottom: 0px;
+}
+
+#contactForm p {
 	text-align: center;
 }
-img#avatar {
-	width:100px;
-	height: auto;
-	border-radius: 50%;
+
+#page-footer {
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 100px;
+}
+
+#social-media-links {
+	padding-top: 20px;
+	text-align: center;
+}
+
+#contact-information-links {
+	text-align: center;
+	list-style: none;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#submitButtonBlock {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+p#errorMessage {
+	text-align: left;
 }

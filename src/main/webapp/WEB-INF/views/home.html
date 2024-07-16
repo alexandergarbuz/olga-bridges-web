@@ -1,9 +1,27 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
 <head>
-    <title>Home</title>
+<meta charset="ISO-8859-1">
+<title>Olga Bridges</title>
+    <link th:href="@{/static/bootstrap-5.3.3-dist/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/static/font-awesome-4.7.0/css/font-awesome.min.css}" rel="stylesheet"/>
+<link href="./static/css/default.css" rel="stylesheet"/>
+<script src="./static/js/default.js"></script>
 </head>
 <body>
-    <h1 th:text="${hello.message}">Welcome message placeholder</h1>
+
+<div class="container">
+	<div id="page-header">
+		<img th:src="@{/static/img/olga-bridges-300x300.png}" id="avatar" alt="Olga Bridges"/>
+	</div>
+	<h1 id="heading">Hello from </h1>
+	<h1 th:text="${model.message}">Welcome message placeholder</h1>	
+	
+	<div style="text-align:center">
+		<a th:href="@{/data/data}" target="_blank"><i class="fa fa-rss"></i> View JSON <i class="fa fa-external-link"></i></a>		
+	</div>
+</div>
+<script th:src="@{/static/jquery-3.7.1.min.js}"></script>
+<script th:src="@{/static/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

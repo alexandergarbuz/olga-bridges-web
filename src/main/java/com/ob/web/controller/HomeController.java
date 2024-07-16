@@ -23,7 +23,7 @@ public class HomeController {
     	
     	ModelAndView mv = new ModelAndView();
     	mv.addObject("model", hello);
-    	mv.setViewName("index");
+    	mv.setViewName("home");
 
         return mv;
     }
