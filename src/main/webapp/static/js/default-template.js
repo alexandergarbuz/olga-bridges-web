@@ -2,7 +2,7 @@
 	
 console.log("Hello world");
 
-	const endpoint = "./data/data";
+	const endpoint = "./some-url";
 	fetch(endpoint).then(function (response) {
 		if(!response.ok) {
 			throw new Error("Response received is not OK: " + response.statusText);

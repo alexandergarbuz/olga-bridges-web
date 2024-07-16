@@ -17,7 +17,7 @@ import com.ob.web.model.EmailResponse;
 import com.ob.web.service.MessagingService;
 
 @RestController
-@RequestMapping("/email")
+@RequestMapping("/message")
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
 public class MessagingController {
 	
