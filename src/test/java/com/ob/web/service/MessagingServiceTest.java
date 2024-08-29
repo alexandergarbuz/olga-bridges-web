@@ -6,17 +6,26 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
+import com.ob.web.config.EmailConfig;
 import com.ob.web.model.EmailMessage;
 import com.ob.web.model.EmailResponse;
 
 public class MessagingServiceTest {
 	
 	private MessagingService service;
+	private EmailSender emailSender;
+	private EmailConfig emailConfig;
 
 	@BeforeEach
 	public void setUp() throws Exception {
-		this.service  = new MessagingService();
+		
+		this.emailSender = Mockito.mock(EmailSender.class);
+		this.emailConfig = Mockito.mock(EmailConfig.class);
+		Mockito.when(emailConfig.getRecepient()).thenReturn("email@host.com");
+		
+		this.service  = new MessagingService(emailSender, emailConfig);
 	}
 
 	@Test
